@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   h1 {
     text-align: center;
     font-weight: bolder;
@@ -33,5 +34,35 @@
     font-size: 15px;
     font-weight: bold;
     flex: 2;
+  }
+}
+
+.profile__link {
+  position: fixed;
+  // bottom: -420px;
+  bottom: 0;
+  width: 20%;
+  height: fit-content;
+  border-top: 2px solid gray;
+
+  .profile {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    justify-content: space-evenly;
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+    }
+
+    button {
+      padding: 10px 30px;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
   }
 }

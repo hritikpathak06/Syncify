@@ -1,0 +1,45 @@
+.translation__text {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  textarea {
+    width: 60%;
+    padding: 10px 15px;
+  }
+
+  select {
+    width: 15%;
+    padding: 18px 15px;
+    cursor: pointer;
+  }
+
+  button {
+    width: 10%;
+    padding: 18px 15px;
+    background-color: brown;
+    cursor: pointer;
+    color: white;
+    border: none;
+  }
+}
+
+.translated__text {
+  width: 100%;
+  height: max-content;
+  overflow: scroll;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  p {
+    font-size: 2rem;
+  }
+}

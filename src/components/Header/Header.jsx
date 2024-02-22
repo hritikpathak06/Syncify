@@ -4,6 +4,11 @@ import { MdRemoveDone } from "react-icons/md";
 import { FaImage } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { GiUpgrade } from "react-icons/gi";
+import { FaFileWord } from "react-icons/fa";
+import { useUser } from "../../context/userContext";
+import { auth } from "../../firebase/firebase";
+import { signOut } from "firebase/auth";
+import { MdAudioFile } from "react-icons/md";
 
 const links = [
   {
@@ -21,9 +26,32 @@ const links = [
     url: "/generate-images",
     icon: <FaImage />,
   },
+  {
+    name: "Text Translation",
+    url: "/text-translation",
+    icon: <FaFileWord />,
+  },
+  {
+    name: "Video To Audio",
+    url: "/video-to-audio",
+    icon: <MdAudioFile />,
+  },
 ];
 
 const Header = () => {
+  const { userData,setUserData } = useUser();
+
+  const Logout = () => {
+    signOut(auth)
+      .then(() => {
+        setUserData(null);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+
   return (
     <div className="header">
       <h1>Syncify</h1>
@@ -37,6 +65,16 @@ const Header = () => {
           </div>
         </NavLink>
       ))}
+      <div className="profile__link">
+        <div className="profile">
+            {userData && (
+              <>
+                <img src={userData.photoURL} alt="Profile" />
+                <button onClick={Logout}>Logout</button>
+              </>
+            )}
+        </div>
+      </div>
     </div>
   );
 };
