@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Header.scss";
 import { MdRemoveDone } from "react-icons/md";
 import { FaImage } from "react-icons/fa";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { GiUpgrade } from "react-icons/gi";
 import { FaFileWord } from "react-icons/fa";
 import { useUser } from "../../context/userContext";
@@ -47,6 +47,7 @@ const links = [
 const Header = () => {
   const { userData, setUserData } = useUser();
   const [tab, setTab] = useState(window.location.pathname);
+  const navigate = useNavigate();
 
   console.log(tab);
 
@@ -54,6 +55,7 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         setUserData(null);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

@@ -5,7 +5,7 @@ import { GiCancel, GiUpgrade } from "react-icons/gi";
 import { MdAudioFile, MdRemoveDone } from "react-icons/md";
 import { FaFileWord, FaImage } from "react-icons/fa";
 import { BsCameraVideoFill } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useUser } from "../../context/userContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
@@ -46,6 +46,7 @@ const links = [
 const Drawer = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
   const { userData, setUserData } = useUser();
+  const navigate = useNavigate();
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
@@ -55,6 +56,7 @@ const Drawer = memo(() => {
     signOut(auth)
       .then(() => {
         setUserData(null);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -68,7 +70,7 @@ const Drawer = memo(() => {
       </button>
       <div className={`drawer ${isOpen ? "open" : ""}`}>
         <div className="drawer__data">
-          <img src="./syncify.png" alt="" />
+          <img src="./syncify.png" alt="" onClick={() => navigate("/")} />
           <button onClick={toggleDrawer} className="close-button">
             <GiCancel style={{ width: "30px", height: "30px" }} />
           </button>

@@ -13,7 +13,7 @@ import "./SignIn.scss";
 import { BsGoogle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
-const SignIn = () => {
+const SignUp = () => {
   const { userData, setUserData } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -77,45 +77,47 @@ const SignIn = () => {
       });
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <>
-    <div className="sign__in__div">
-    <div className="left__sign__in">
-      <img src="./sign.png" alt="" onClick={() => navigate("/")} />
-    </div>
-
-      <div className="sign__in">
-        <button type="button" onClick={signUpUsingGoogle}>
-          <span>
-            <BsGoogle />
-          </span>
-          Sign In with Google
-        </button>
-        <div className="sign__in__input">
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <p onClick={() => navigate("/sign-up")}>Don't Have an account..??</p>
-          <button type="button" onClick={signInWithEmailPassword}>
-            Sign In 
+      <div className="sign__in__div">
+        <div className="sign__in">
+          <button type="button" onClick={signUpUsingGoogle}>
+            <span>
+              <BsGoogle />
+            </span>
+            Continue with Google
           </button>
+          <div className="sign__in__input">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <p onClick={() => navigate("/login")}>
+              Already Have an account..??
+            </p>
+            <button type="button" onClick={signUpWithEmailPassword}>
+              Sign Up
+            </button>
+          </div>
+
+          {error && <p>Error: {error}</p>}
         </div>
-        {error && <p>Error: {error}</p>}
+        <div className="left__sign__in">
+          <img src="./sign.png" alt="" onClick={() => navigate("/")} />
+        </div>
       </div>
-    </div>
     </>
   );
 };
 
-export default SignIn;
+export default SignUp;
