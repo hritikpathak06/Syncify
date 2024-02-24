@@ -17,7 +17,7 @@ const AIImage = () => {
       url: "https://ai-image-generator3.p.rapidapi.com/generate",
       headers: {
         "content-type": "application/json",
-        "X-RapidAPI-Key": "a7c5793e16mshbe6517a1c475f74p17fb64jsn4e8a08f42799",
+        "X-RapidAPI-Key": "c1a0362337mshb0c38b589022a68p1d4d05jsn1bd1ef91c36f",
         "X-RapidAPI-Host": "ai-image-generator3.p.rapidapi.com",
       },
       data: {
@@ -67,28 +67,32 @@ const AIImage = () => {
           Generate Image
         </button>
       </div>
-      <h2>Generated Image:</h2>
       {loading ? (
         <Loader />
       ) : (
         <>
-          <div className="ai__image__box">
-            {generatedImages.map((url, idx) => (
-              <div key={idx} className="ai__images">
-                <img
-                  src={url}
-                  alt="Generated"
-                  style={{
-                    maxWidth: "100%",
-                    width: "200px",
-                    maxHeight: "400px",
-                    height: "300px",
-                  }}
-                />
-                <button onClick={() => downloadImage(url)}>Download</button>
+          {generatedImages.length > 0 && (
+            <>
+              <h2>Generated Image:</h2>
+              <div className="ai__image__box">
+                {generatedImages.map((url, idx) => (
+                  <div key={idx} className="ai__images">
+                    <img
+                      src={url}
+                      alt="Generated"
+                      style={{
+                        maxWidth: "100%",
+                        width: "200px",
+                        maxHeight: "400px",
+                        height: "300px",
+                      }}
+                    />
+                    <button onClick={() => downloadImage(url)}>Download</button>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
         </>
       )}
     </div>

@@ -6,6 +6,7 @@ import GenerateImages from "./pages/GenerateImages/GenerateImages";
 import Translation from "./pages/Translation/Translation";
 import Home from "./pages/Home/Home";
 import YTVideosToAUdio from "./pages/YTVideosToAUdio/YTVideosToAUdio";
+import VideoDownloader from "./pages/VideoDownloader/VideoDownloader";
 
 function App() {
   const { userData } = useUser();
@@ -34,6 +35,10 @@ function App() {
         <Route
           path="/video-to-audio"
           element={userData ? <YTVideosToAUdio /> : <Home />}
+        />
+          <Route
+          path="/video-downloader"
+          element={userData ? <VideoDownloader /> : <Home />}
         />
       </Routes>
     </div>

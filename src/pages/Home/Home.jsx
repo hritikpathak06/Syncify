@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../Layout/Layout";
 import SignIn from "../SignIn/SignIn";
-import VideoTOMp3 from "../../components/VideoToMp3/VideoTOMp3";
+import Loader from "../../components/Loader/Loader";
 
 const Home = () => {
 
@@ -12,6 +12,7 @@ const Home = () => {
         <h1>Home</h1>
         <SignIn />
       </div>
+      <Loader/>
     </Layout>
   );
 };

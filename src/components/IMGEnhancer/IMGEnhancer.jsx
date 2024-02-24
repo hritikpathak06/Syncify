@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../BGRemoval/BGRemoval.scss";
+import Loader from "../Loader/Loader";
 
 const IMGEnhancer = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -23,7 +24,7 @@ const IMGEnhancer = () => {
       url: "https://picsart-photo-enhancement.p.rapidapi.com/upscale/ultra",
       params: { mode: "sync" },
       headers: {
-        "X-RapidAPI-Key": "a7c5793e16mshbe6517a1c475f74p17fb64jsn4e8a08f42799",
+        "X-RapidAPI-Key": "c1a0362337mshb0c38b589022a68p1d4d05jsn1bd1ef91c36f",
         "X-RapidAPI-Host": "picsart-photo-enhancement.p.rapidapi.com",
         ...Object.fromEntries(data),
       },
@@ -76,31 +77,37 @@ const IMGEnhancer = () => {
           <button onClick={() => downloadImage(enhancedImage)}>Download</button>
         )}
       </div>
-      {loading && <p>Enhancing Image...</p>}
-      <div className="bgremoval__data">
-        {uploadedImage && (
-          <>
-            {/* <h2>Uploaded Image:</h2> */}
-            <div className="bgremoval__left">
-              <img
-                src={uploadedImage}
-                alt="Uploaded"
-                style={{ maxWidth: "100%", maxHeight: "400px" }}
-              />
-            </div>
-          </>
-        )}
-        {enhancedImage && (
-          <div className="bgremoval__right">
-            {/* <h2>Removed Background Image:</h2> */}
-            <img
-              src={enhancedImage}
-              alt="Removed Background"
-              style={{ maxWidth: "100%", maxHeight: "400px" }}
-            />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div className="bgremoval__data">
+            {uploadedImage && (
+              <>
+                {/* <h2>Uploaded Image:</h2> */}
+                <div className="bgremoval__left">
+                  <img
+                    src={uploadedImage}
+                    alt="Uploaded"
+                    style={{ maxWidth: "100%", maxHeight: "400px" }}
+                  />
+                </div>
+              </>
+            )}
+            {enhancedImage && (
+              <div className="bgremoval__right">
+                {/* <h2>Removed Background Image:</h2> */}
+                <img
+                  src={enhancedImage}
+                  alt="Removed Background"
+                  style={{ maxWidth: "100%", maxHeight: "400px" }}
+                />
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </>
+      )}
+
       {error && <p>Error: {error}</p>}
     </div>
   );

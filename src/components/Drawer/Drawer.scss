@@ -1,0 +1,64 @@
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Start off-screen */
+  width: 300px;
+  height: 100vh;
+  background-color: whitesmoke;
+  color: black;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+
+  svg {
+    background-color: transparent;
+  }
+
+  &.open {
+    left: 0;
+  }
+
+  .drawer-content {
+    padding: 20px;
+
+    .navigation {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 30px;
+        color: black;
+        font-weight: 900;
+      }
+    }
+    .profile__link{
+        width: 70%;
+    }
+  }
+
+  .close-button {
+    margin-bottom: 20px;
+  }
+
+  .drawer__data {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    img {
+      width: 200px;
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      svg {
+        color: black;
+        cursor: pointer;
+        margin-top: 13px;
+      }
+    }
+  }
+}

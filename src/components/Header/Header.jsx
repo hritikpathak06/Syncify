@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.scss";
 import { MdRemoveDone } from "react-icons/md";
 import { FaImage } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { GiUpgrade } from "react-icons/gi";
 import { FaFileWord } from "react-icons/fa";
 import { useUser } from "../../context/userContext";
 import { auth } from "../../firebase/firebase";
 import { signOut } from "firebase/auth";
 import { MdAudioFile } from "react-icons/md";
+import { BsCameraVideoFill } from "react-icons/bs";
 
 const links = [
   {
@@ -36,10 +37,18 @@ const links = [
     url: "/video-to-audio",
     icon: <MdAudioFile />,
   },
+  {
+    name: "Video Downloader",
+    url: "/video-downloader",
+    icon: <BsCameraVideoFill />,
+  },
 ];
 
 const Header = () => {
-  const { userData,setUserData } = useUser();
+  const { userData, setUserData } = useUser();
+  const [tab, setTab] = useState(window.location.pathname);
+
+  console.log(tab);
 
   const Logout = () => {
     signOut(auth)
@@ -51,13 +60,20 @@ const Header = () => {
       });
   };
 
-
   return (
     <div className="header">
-      <h1>Syncify</h1>
+      <NavLink to={"/"}>
+        <img src="./syncify.png" alt="" className="logo__img" />
+      </NavLink>
       {links.map((link) => (
         <NavLink to={link.url}>
-          <div className="header__links">
+          <div
+            className="header__links"
+            style={{
+              backgroundColor: tab === link.url ? "blueviolet" : "",
+              color: tab === link.url ? "white" : "",
+            }}
+          >
             <div className="link">
               <span>{link.icon}</span>
               <p> {link.name}</p>
@@ -67,12 +83,12 @@ const Header = () => {
       ))}
       <div className="profile__link">
         <div className="profile">
-            {userData && (
-              <>
-                <img src={userData.photoURL} alt="Profile" />
-                <button onClick={Logout}>Logout</button>
-              </>
-            )}
+          {userData && (
+            <>
+              <img src={userData.photoURL} alt="Profile" />
+              <button onClick={Logout}>Logout</button>
+            </>
+          )}
         </div>
       </div>
     </div>

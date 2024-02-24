@@ -27,8 +27,8 @@
 
     button {
       padding: 16px 30px;
-      background-color: brown;
-      font-weight: bolder;
+      background-color: blue;
+      font-weight: 900;
       border: none;
       cursor: pointer;
     }
@@ -68,6 +68,14 @@
 }
 
 @media only screen and (max-width: 550px) {
+  .ai__input{
+    flex-direction: column;
+    gap: 20px;
+    button{
+      width: 80%;
+      padding: 10px 30px !important;
+    }
+  }
   .ai__images {
     width: 100% !important;
     display: flex;

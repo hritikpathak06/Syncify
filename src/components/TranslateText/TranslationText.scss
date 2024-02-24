@@ -18,7 +18,8 @@
   button {
     width: 10%;
     padding: 18px 15px;
-    background-color: brown;
+    background-color: blue;
+    font-weight: 900;
     cursor: pointer;
     color: white;
     border: none;
@@ -41,5 +42,45 @@
   }
   p {
     font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .translation__text {
+    textarea {
+      width: 40% !important;
+    }
+    select {
+      padding: 10px 12px !important;
+    }
+    button {
+      padding: 5px 10px !important;
+      display: block;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .translation__text {
+    flex-direction: column;
+    gap: 20px;
+    textarea {
+      width: 80% !important;
+    }
+    select {
+      width: 80% !important;
+    }
+    button {
+      width: 80% !important;
+      padding: 10px 12px !important;
+    }
+  }
+  .translated__text {
+    h2 {
+      font-size: 1.3rem !important;
+    }
+    p {
+      font-size: 14px !important;
+    }
   }
 }

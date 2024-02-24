@@ -15,9 +15,9 @@
     button {
       padding: 15px 40px;
       cursor: pointer;
-      background-color: brown;
+      background-color: blue;
       border: none;
-      border-radius: 20px;
+      font-weight: 900;
     }
 
     .file-input-wrapper {
@@ -37,7 +37,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 2; 
+        z-index: 2;
 
         &:focus + .file-input-label {
           outline: 1px dotted #000;
@@ -56,7 +56,6 @@
         text-align: center;
         z-index: 1;
         text-align: center;
-        // Styling for hover state
         &:hover {
           background-color: darken($color: #007bff, $amount: 10%);
         }
@@ -70,7 +69,6 @@
 
     .bgremoval__left {
       width: 50%;
-      //   border: 1px solid white;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -78,10 +76,30 @@
 
     .bgremoval__right {
       width: 50%;
-      //   border: 1px solid white;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+  }
+}
+
+@media only screen and (max-width: 671px) {
+  .bgremoval__input {
+    flex-direction: column;
+    gap: 10px;
+
+    .file-input-wrapper {
+      width: 80%;
+    }
+    button {
+      width: 70% !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .bgremoval__data {
+    flex-direction: column;
+    gap: 30px !important;
   }
 }

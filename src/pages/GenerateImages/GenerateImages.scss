@@ -14,3 +14,12 @@
       "Lucida Sans", Arial, sans-serif;
   }
 }
+
+@media only screen and (max-width: 550px) {
+  .generate__images {
+    height: max-content !important;
+    h1 {
+      font-size: 1.6rem !important;
+    }
+  }
+}

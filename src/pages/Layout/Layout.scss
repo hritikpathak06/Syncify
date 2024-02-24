@@ -12,6 +12,10 @@
       width: 20%;
       height: 100%;
       border-right: 3px solid #ffff;
+
+      .left__layout__drawer {
+        display: none;
+      }
     }
 
     .right__layout {
@@ -24,14 +28,23 @@
 }
 
 @media only screen and (max-width: 900px) {
- .sub__layout{
-  width: 100%;
-  .left__layout{
-    display: none !important;
-  }
-  .right__layout {
+  .sub__layout {
     width: 100% !important;
-    // background-color: red;
+
+    .left__layout {
+      border: none !important;
+      width: 5% !important;
+      .left__layout__header {
+        display: none !important;
+      }
+      .left__layout__drawer {
+        display: block !important;
+        width: 10% !important;
+        height: fit-content !important;
+      }
+    }
+    .right__layout {
+      width: 100% !important;
+    }
   }
- }
 }

@@ -7,6 +7,11 @@
   a {
     text-decoration: none;
   }
+
+  .logo__img {
+    width: 250px;
+    margin-bottom: -2rem;
+  }
 }
 
 .header__links {
@@ -39,7 +44,6 @@
 
 .profile__link {
   position: fixed;
-  // bottom: -420px;
   bottom: 0;
   width: 20%;
   height: fit-content;
@@ -64,5 +68,11 @@
       border: none;
       cursor: pointer;
     }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .logo__img {
+    width: 150px !important;
   }
 }

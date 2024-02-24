@@ -1,0 +1,61 @@
+.video_to_mp3 {
+  width: 100%;
+  height: max-content;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  .input__container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    input {
+      width: 80%;
+      padding: 15px 20px;
+    }
+
+    button {
+      padding: 16px 20px;
+      background-color: blue;
+      border: none;
+      cursor: pointer;
+      font-weight: 900;
+    }
+  }
+
+  .audio__output {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    audio {
+      width: 100%;
+      padding: 10px 30px;
+      cursor: pointer;
+    }
+    button {
+      width: 50%;
+      margin: auto;
+      padding: 10px 30px;
+      margin-top: 2rem;
+      cursor: pointer;
+      background-color: blue;
+      font-weight: 900;
+      border: none;
+      border-radius: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .input__container {
+    button {
+      padding: 5px 10px !important;
+    }
+  }
+}

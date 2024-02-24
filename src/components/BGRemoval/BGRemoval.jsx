@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./BGRemoval.scss";
+import Loader from "../Loader/Loader";
 
 const BGRemoval = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [removedBackgroundImage, setRemovedBackgroundImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
+
   const handleUploadImage = async (e) => {
     const file = e.target.files[0];
     setUploadedImage(URL.createObjectURL(file));
@@ -20,7 +21,7 @@ const BGRemoval = () => {
       method: "POST",
       url: "https://picsart-remove-background2.p.rapidapi.com/removebg",
       headers: {
-        "X-RapidAPI-Key": "a7c5793e16mshbe6517a1c475f74p17fb64jsn4e8a08f42799",
+        "X-RapidAPI-Key": "c1a0362337mshb0c38b589022a68p1d4d05jsn1bd1ef91c36f",
         "X-RapidAPI-Host": "picsart-remove-background2.p.rapidapi.com",
         ...Object.fromEntries(data),
       },
@@ -74,8 +75,9 @@ const BGRemoval = () => {
           </button>
         )}
       </div>
-      {loading && <p>Removing background...</p>}
-      <div className="bgremoval__data">
+      {loading ? <Loader/> : (
+        <>
+        <div className="bgremoval__data">
         {uploadedImage && (
           <>
             {/* <h2>Uploaded Image:</h2> */}
@@ -99,6 +101,9 @@ const BGRemoval = () => {
           </div>
         )}
       </div>
+        </>
+      )}
+  
       {error && <p>Error: {error}</p>}
     </div>
   );
