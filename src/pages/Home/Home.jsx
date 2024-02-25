@@ -77,8 +77,8 @@ export default Home;
 
 const homeData = [
   {
-    poster: "./removebg.png",
-    cutout: "./removebg.png",
+    poster: "./generate_images.png",
+    cutout: "./generate_images.png",
     title: "Background Remover",
     subtitle:
       "Revolutionize your visuals with our background remover feature! Effortlessly eliminate backgrounds from images, enhancing your designs. Seamlessly integrate this powerful tool into your web application for stunning results.",
