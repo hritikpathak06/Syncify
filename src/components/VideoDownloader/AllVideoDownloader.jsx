@@ -88,15 +88,14 @@ const VideoDownloader = () => {
         <>
           {downloadedVideoUrl && (
             <>
-          <div className="video__container">
-          <a href={downloadedVideoUrl} download="downloaded_video.mp4">
-                <button>Download</button>
-              </a>
-              <video controls>
-                <source src={downloadedVideoUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-         
+              <div className="video__container">
+                <a href={downloadedVideoUrl} download="downloaded_video.mp4">
+                  <button>Download</button>
+                </a>
+                <video controls>
+                  <source src={downloadedVideoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </>
           )}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/userContext";
+import Footer from "../Footer/Footer";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -67,6 +68,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
@@ -75,8 +77,8 @@ export default Home;
 
 const homeData = [
   {
-    poster: "./removeBG.png",
-    cutout: "./bgg.png",
+    poster: "./removebg.png",
+    cutout: "./removebg.png",
     title: "Background Remover",
     subtitle:
       "Revolutionize your visuals with our background remover feature! Effortlessly eliminate backgrounds from images, enhancing your designs. Seamlessly integrate this powerful tool into your web application for stunning results.",
@@ -84,8 +86,8 @@ const homeData = [
     link: "/background-removal",
   },
   {
-    poster: "./removeBG.png",
-    cutout: "./bgg.png",
+    poster: "./image_enhancer.png",
+    cutout:"image_enhancer.png",
     title: "Image Enhancer",
     subtitle:
       "Transform ordinary images into extraordinary visuals with our image enhancer feature! Elevate the quality of your photos with advanced editing tools, enhancing colors, sharpness, and overall appeal. Experience the difference in your web application today!",
@@ -93,8 +95,8 @@ const homeData = [
     link: "/image-enhancer",
   },
   {
-    poster: "./removeBG.png",
-    cutout: "./bgg.png",
+    poster: "./generate_images.png",
+    cutout: "./generate_images.png",
     title: "Generate Images",
     subtitle:
       "Unlock endless creativity with our image generation feature! Generate custom images for your web application with ease. From placeholders to dynamic graphics, fuel your imagination and enhance your visual content effortlessly.",
@@ -102,8 +104,8 @@ const homeData = [
     link: "/generate-images",
   },
   {
-    poster: "./removeBG.png",
-    cutout: "./bgg.png",
+    poster: "./text_translation.png",
+    cutout: "./text_translation.png",
     title: "Text Translation",
     subtitle:
       "Break language barriers with our text translation feature! Seamlessly translate text in your web application to communicate globally. Enhance user experience and expand your reach with effortless multilingual support.",
@@ -111,8 +113,8 @@ const homeData = [
     link: "/text-translation",
   },
   {
-    poster: "./removeBG.png",
-    cutout: "./bgg.png",
+    poster: "./video-to-audio.png",
+    cutout: "./video-to-audio.png",
     title: "Video To Audio",
     subtitle:
       "Convert YouTube videos to audio effortlessly with our feature! Extract audio tracks from videos, enabling users to enjoy their favorite content in audio format. Enhance the versatility of your web application with this powerful tool.",
@@ -120,8 +122,8 @@ const homeData = [
     link: "/video-to-audio",
   },
   {
-    poster: "./removeBG.png",
-    cutout: "./bgg.png",
+    poster: "./video_downloader.png",
+    cutout: "./video_downloader.png",
     title: "Video Downloader",
     subtitle:
       "Download videos from popular platforms like Facebook, Instagram, TikTok, and YouTube with ease using our video downloader feature! Save your favorite videos for offline viewing and sharing. Enhance your web experience with seamless video downloading capabilities.",
